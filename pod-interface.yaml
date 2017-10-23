@@ -1,0 +1,36 @@
+# このファイルでは、このワークフローがどのようなものか、どのような入力が必要か、
+# どのような結果を出力するかを、ユーザや、SeqPodサーバに説明します。
+#
+# このYAMLファイルのフィールド名は、すべてが小文字でキャメルケースです。
+# ワークフロー開発者（あなた）が自由に命名できるフィールド名は、すべて大文字であることが推奨されます。
+
+# selfフィールドは、このワークフローそのものの説明などをします。
+# 主にSeqPodユーザへのメッセージとして表示されます。
+self:
+  name: seqpod/hello-world.ja
+  author: otiai10 <otiai10@gmail.com>
+  introduction: SeqPodで実行可能なワークフロー（SeqPodでは「pod」と呼びます）の、最も簡単なサンプルです。
+  registry:
+    - service: dockerhub
+      url: https://hub.docker.com/r/seqpod/hello-world.ja
+      namespace: seqpod/hello-world.ja
+
+# inputsフィールドでは、このワークフローがSeqPodユーザに期待する入力ファイルを示します。
+inputs:
+  EXAMPLE_FOO:
+    required: true
+    form:
+      type: file
+
+# parametersフィールドでは、このワークフローにおいてユーザがチューニング可能な値を明示します。
+# ユーザにとっての利便性のために、すべてのparameterは、必ずdefault値を持つ必要があります。
+parameters:
+  MY_SLEEPY_SECONDS:
+    default: 10
+    form:
+      type: number
+
+# outputsフィールドでは、このワークフローの結果として期待できる成果物ファイルを明示します。
+outputs:
+  RESULT_HOGE:
+    as: result_${EXAMPLE_FOO}.txt
