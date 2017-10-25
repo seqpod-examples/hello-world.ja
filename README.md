@@ -17,5 +17,5 @@ docker run -it --rm \
 
 ```sh
 podtk run seqpod/hello-world.ja \
-  --satisfy your-data-set.yaml
+  --satisfy your-dataset.yaml
 ```

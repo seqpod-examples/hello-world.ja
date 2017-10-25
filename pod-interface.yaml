@@ -17,7 +17,7 @@ self:
 
 # inputsフィールドでは、このワークフローがSeqPodユーザに期待する入力ファイルを示します。
 inputs:
-  EXAMPLE_FOO:
+  MY_EXAMPLE_FILE:
     required: true
     form:
       type: file
@@ -32,5 +32,7 @@ parameters:
 
 # outputsフィールドでは、このワークフローの結果として期待できる成果物ファイルを明示します。
 outputs:
-  RESULT_HOGE:
-    as: result_${EXAMPLE_FOO}.txt
+  EXAMPLE_RESULT:
+    as: result-example.txt
+  EXAMPLE_MESSAGE:
+    as: message.txt
