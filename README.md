@@ -6,9 +6,9 @@
 
 ```sh
 docker run -it --rm \
-  --volume ~/tmp/data:/var/data \
-  --volume ~/tmp/out:/var/out \
-  -e EXAMPLE_INPUT_FOO=my-example.fastq \
+  --volume ~/your/test/inputs:/var/data/in
+  --volume ~/your/test/outputs:/var/data/out
+  -e MY_EXAMPLE_FILE=my-example.fastq \
   -e MY_SLEEPY_SECONDS=5 \
   seqpod/hello-world.ja
 ```
