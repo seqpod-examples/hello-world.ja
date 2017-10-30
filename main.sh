@@ -35,6 +35,9 @@ cat /var/data/in/${MY_EXAMPLE_FILE} >> ./message.txt || exit 1
 echo "------ END ------" >> ./message.txt
 echo `date` >> ./message.txt
 
+echo "MY_GREETINGが追加される"
+echo ${MY_GREETING} >> ./message.txt
+
 # pod-interface.yamlにおいて、parametersフィールドで指定されたものは、
 # ディクショナリ形式のキーを名前とする環境変数に値が格納されます。
 echo "---> MY_SLEEPY_SECONDSに、値 ${MY_SLEEPY_SECONDS} が与えられています"
@@ -49,7 +52,7 @@ printf "\n"
 # /var/out というディレクトリにそれを配置してください。
 # それ以外の場所に配置されたファイルは、ワークフロー終了時に、
 # ジョブ実行ノードが抹殺されるとともに消え去ります。
-mv ./message.txt /var/data/out
+mv ./message.txt /var/data/out/message-out.txt
 
 # このワークフローはここで終わりです。
 # おつかれさまでした！

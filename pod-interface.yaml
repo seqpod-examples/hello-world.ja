@@ -29,10 +29,14 @@ parameters:
     default: 10
     form:
       type: number
+  MY_GREETING:
+    default: ハローハロー
+    form:
+      type: text
 
 # outputsフィールドでは、このワークフローの結果として期待できる成果物ファイルを明示します。
 outputs:
   EXAMPLE_RESULT:
     as: result-example.txt
   EXAMPLE_MESSAGE:
-    as: message.txt
+    as: message-out.txt
